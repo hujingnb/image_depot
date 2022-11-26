@@ -1,5 +1,6 @@
 import os
 from .base import Depot
+from .error import DepotError
 
 # 整理所有的类型 map, 方便获取的时候加速
 DEPOT_MAP = {}

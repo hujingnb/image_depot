@@ -4,9 +4,8 @@
 import os
 from typing import List
 
-from depot import Depot, DEPOT_MAP
-from depot_type import DepotType
-from error import DepotError
+from .depot import Depot, DEPOT_MAP, DepotError
+from .depot_type import DepotType
 
 
 def image_depot(t: DepotType) -> Depot:
@@ -37,7 +36,7 @@ def upload(content, type_list: List[DepotType] = None) -> (str, List[DepotError]
         d = image_depot(item)
         ret = d.upload(content)
         if ret:
-            return ret
+            return ret, err
         else:
             err.append(d.error())
     return None, err

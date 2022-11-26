@@ -4,8 +4,8 @@ from typing import Optional
 
 import magic
 
-from depot_type import DepotType
-from error import DepotError
+from image_depot import DepotType
+from .error import DepotError
 
 
 class Depot(ABC):
