@@ -10,6 +10,11 @@ class DepotType(Enum):
     图床
     url: https://catbox.moe/
     """
+    PngCm = auto()
+    """
+    图床
+    url: https://png.cm/
+    """
     Ai58 = auto()
     """
     58同城客服, 在线上传图片
