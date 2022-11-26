@@ -26,7 +26,7 @@ pip install image-depot
 ```
 
 ```python
-from image_depot import image_depot, DepotType
+from image_depot import image_depot, DepotType, upload, upload_file
 
 # 选择图床对象
 d = image_depot(DepotType.CatBox)
@@ -39,5 +39,9 @@ if not image_url:  # 图片上传失败, 获取失败原因
 # 上传图片, 使用本地文件路径
 file_path = ''
 image_url = d.upload_file(file_path)
+
+# 依次尝试所有图床, 返回第一个成功的. 
+url, err = upload(image_content)
+upload_file(file_path)
 ```
 
