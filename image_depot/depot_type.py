@@ -20,6 +20,10 @@ class DepotType(Enum):
     链接存在有效期
     url: https://riyugo.com/
     """
+    NiuPic = auto()
+    """
+    url: https://www.niupic.com/
+    """
     Ai58 = auto()
     """
     58同城客服, 在线上传图片
