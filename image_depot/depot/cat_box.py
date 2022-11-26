@@ -7,10 +7,6 @@ from .base import Depot
 
 
 class CatBox(Depot):
-    """
-    :url: https://catbox.moe/
-    """
-
     @classmethod
     def depot_type(cls) -> DepotType:
         return DepotType.CatBox

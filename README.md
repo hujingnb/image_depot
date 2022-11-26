@@ -28,9 +28,12 @@ file_path = ''
 image_url = d.upload_file(file_path)
 ```
 
-# 当前图床
+# 当前支持的上传
 
-* `CatBox`
+* 公共图床
+  * `CatBox`
+* 网站
+  * `Ai58`: 58同城客服系统
 
 # 其他
 
