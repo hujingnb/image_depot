@@ -22,5 +22,5 @@ class CatBox(Depot):
         }
         response = requests.post('https://catbox.moe/user/api.php', data=data, files=files)
         if response.status_code != 200:
-            return self._set_error(response.text)
+            return self._set_error(f'upload fail. code: {response.status_code}. content: {response.text}')
         return response.text

@@ -18,7 +18,7 @@ class NiuPic(Depot):
         }
         response = requests.post('https://www.niupic.com/api/upload', files=files)
         if response.status_code != 200:
-            return self._set_error(f'upload file. code: {response.status_code}')
+            return self._set_error(f'upload fail. code: {response.status_code}. content: {response.text}')
         data = response.json()
         if data.get('code') != 200 or not data.get('data'):
             return self._set_error(response.text)
