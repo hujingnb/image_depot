@@ -36,3 +36,7 @@ class DepotType(Enum):
     58同城客服, 在线上传图片
     url: https://ai.58.com
     """
+    Github = auto()
+    """
+    url: https://github.com
+    """
