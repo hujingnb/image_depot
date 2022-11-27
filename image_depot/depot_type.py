@@ -8,16 +8,19 @@ class DepotType(Enum):
     CatBox = auto()
     """
     图床
+    
     url: https://catbox.moe/
     """
     PngCm = auto()
     """
     图床
+    
     url: https://png.cm/
     """
     Riyugo = auto()
     """
-    链接存在有效期 \n
+    链接存在有效期
+    
     url: https://riyugo.com/
     """
     NiuPic = auto()
@@ -26,14 +29,15 @@ class DepotType(Enum):
     """
     SmMs = auto()
     """
-    需要配置 \n
-    免费存储空间限制, 可注册多个账号 \n
-    图片链接空 referer 访问时, 会重定向到图床网址 \n
+    限制: 
+        1. 免费账号限制存储空间(可注册多个账号)
+        2. 图片链接空 referer 访问时, 会重定向到图床网址
     url: https://sm.ms/
     """
     Ai58 = auto()
     """
     58同城客服, 在线上传图片
+    
     url: https://ai.58.com
     """
     Github = auto()
