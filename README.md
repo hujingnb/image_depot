@@ -26,7 +26,11 @@ pip install image-depot
 ```
 
 ```python
-from image_depot import image_depot, DepotType, upload, upload_file
+from image_depot import image_depot, DepotType, upload, upload_file, DepotConfig
+
+# 部分图床需要添加配置才能使用
+token = ''
+DepotConfig.SmMs(token)
 
 # 选择图床对象
 d = image_depot(DepotType.CatBox)
