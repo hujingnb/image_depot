@@ -27,6 +27,15 @@ class DepotType(Enum):
     """
     url: https://www.niupic.com/
     """
+    ImgUrl = auto()
+    """
+    免费账户有上传限制:
+        1. 每日限制上传15张图片
+        2. 每月限制上传400张
+    图片链接限制: 
+        1. 浏览器直接打开图片时, 会重定向到图床网址
+    url: https://www.imgurl.org/
+    """
     SmMs = auto()
     """
     限制: 

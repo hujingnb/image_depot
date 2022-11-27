@@ -49,8 +49,9 @@ class Github(Depot):
         if not USERNAME or not REPO or not SAVE_PATH or not TOKEN:
             return self._set_error('config is miss')
         # 获取文件名称
-        suffix = mimetypes.guess_extension(self._get_mime_type(content))
-        file_name = str(uuid.uuid4()) + suffix
+        file_name = self._random_file_name(content)
+        if not file_name:
+            return None
         url = f"https://api.github.com/repos/{USERNAME}/{REPO}/contents/{SAVE_PATH}/" + file_name  # 用户名、库名、路径
         data = {
             "message": "upload file",
