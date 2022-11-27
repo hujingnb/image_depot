@@ -14,9 +14,10 @@ REPO = ''  # 仓库名
 SAVE_PATH = ''  # 保存路径
 TOKEN = ''
 USE_JSDELIVR = False  # 是否使用 jsdelivr 加速
+BRANCH = ''
 
 
-def set_config(username: str, repo: str, save_path: str, token: str, use_jsdelivr: bool = True):
+def set_config(username: str, repo: str, save_path: str, token: str, use_jsdelivr: bool = True, branch: str = 'master'):
     """
     :param username: 仓库用户名
     :param repo: 仓库名称
@@ -26,14 +27,16 @@ def set_config(username: str, repo: str, save_path: str, token: str, use_jsdeliv
     :param use_jsdelivr: 是否使用 jsdelivr 加速 <br>
         若为 True, 则返回 jsdelivr 图片链接, 否则返回 github 链接 <br>
         默认为 True
+    :param branch: 指定分支名称, 分支必须存在. 默认'master'
     :return:
     """
-    global USERNAME, REPO, SAVE_PATH, TOKEN
+    global USERNAME, REPO, SAVE_PATH, TOKEN, USE_JSDELIVR, BRANCH
     USERNAME = username
     REPO = repo
     SAVE_PATH = save_path
     TOKEN = token
     USE_JSDELIVR = use_jsdelivr
+    BRANCH = branch
 
 
 class Github(Depot):
@@ -51,20 +54,21 @@ class Github(Depot):
         url = f"https://api.github.com/repos/{USERNAME}/{REPO}/contents/{SAVE_PATH}/" + file_name  # 用户名、库名、路径
         data = {
             "message": "upload file",
-            "content": base64.b64encode(content).decode()
+            "content": base64.b64encode(content).decode(),
+            'branch': BRANCH
         }
         headers = {
             "Authorization": "token " + TOKEN
         }
         response = requests.put(url=url, data=json.dumps(data), headers=headers)
         if response.status_code != 201 and response.status_code != 200:
-            return self._set_error(f'upload fail. code: {response.status_code}')
+            return self._set_error(f'upload fail. code: {response.status_code}. content: {response.text}')
         # 获取图片链接
         url = response.json().get('content', {}).get('download_url')
         if not url:
             return self._set_error(f'response error. {response.text}')
         # 返回结果
         if USE_JSDELIVR:
-            return f"https://cdn.jsdelivr.net/gh/{USERNAME}/{REPO}/{SAVE_PATH}/{file_name}"
+            return f"https://cdn.jsdelivr.net/gh/{USERNAME}/{REPO}@{BRANCH}/{SAVE_PATH}/{file_name}"
         else:
             return url
