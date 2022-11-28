@@ -49,6 +49,15 @@ class DepotType(Enum):
         1. 图片链接空 referer 访问时, 会重定向到图床网址
     url: https://imgbb.com/
     """
+    HuaBan = auto()
+    """
+    花瓣网站的图片上传. 
+    
+    限制: 
+        1. 需要先登录
+        2. 图片做了 referer 判断, 空 referer 可访问
+    url: https://huaban.com/
+    """
     Ai58 = auto()
     """
     58同城客服, 在线上传图片
