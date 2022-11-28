@@ -19,8 +19,8 @@ class DepotType(Enum):
     """
     Riyugo = auto()
     """
-    链接存在有效期
-    
+    限制: 
+        1. 图片3天内有效
     url: https://riyugo.com/
     """
     NiuPic = auto()
