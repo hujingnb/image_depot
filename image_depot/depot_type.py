@@ -25,6 +25,8 @@ class DepotType(Enum):
     """
     NiuPic = auto()
     """
+    牛客网
+    
     url: https://www.niupic.com/
     """
     ImgUrl = auto()
@@ -66,5 +68,7 @@ class DepotType(Enum):
     """
     Github = auto()
     """
+    借用 github 仓库
+    
     url: https://github.com
     """
