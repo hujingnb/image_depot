@@ -43,6 +43,12 @@ class DepotType(Enum):
         2. 图片链接空 referer 访问时, 会重定向到图床网址
     url: https://sm.ms/
     """
+    Imgbb = auto()
+    """
+    限制: 
+        1. 图片链接空 referer 访问时, 会重定向到图床网址
+    url: https://imgbb.com/
+    """
     Ai58 = auto()
     """
     58同城客服, 在线上传图片
