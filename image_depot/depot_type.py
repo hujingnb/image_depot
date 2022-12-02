@@ -59,6 +59,12 @@ class DepotType(Enum):
     
     url: https://pic.xywm.ltd/
     """
+    BoLuo = auto()
+    """
+    图床, 限制: 
+        1. 每天限制上传10张
+    url: https://www.boluo.link/
+    """
     HuaBan = auto()
     """
     花瓣网站的图片上传. 图片上传接口在图集上传处发现
