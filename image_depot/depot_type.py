@@ -65,6 +65,10 @@ class DepotType(Enum):
         1. 每天限制上传10张
     url: https://www.boluo.link/
     """
+    ImgAx = auto()
+    """
+    url: https://img.ax/
+    """
     HuaBan = auto()
     """
     花瓣网站的图片上传. 图片上传接口在图集上传处发现
