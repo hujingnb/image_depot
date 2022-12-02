@@ -51,6 +51,14 @@ class DepotType(Enum):
         1. 图片链接空 referer 访问时, 会重定向到图床网址
     url: https://imgbb.com/
     """
+    Xywm = auto()
+    """
+    图床
+        1. 注册用户存在限制, 可能登录后查看
+            * 限制并发数量及上传数量
+    
+    url: https://pic.xywm.ltd/
+    """
     HuaBan = auto()
     """
     花瓣网站的图片上传. 图片上传接口在图集上传处发现
