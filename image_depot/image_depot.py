@@ -2,13 +2,12 @@
 @author hujing
 """
 import os
-from typing import List
-
+from typing import List, Optional
 from .depot import Depot, DEPOT_MAP, DepotError
 from .depot_type import DepotType
 
 
-def image_depot(t: DepotType) -> Depot:
+def image_depot(t: DepotType) -> Optional[Depot]:
     """
     根据 type 获取仓库对象
     :param t:
@@ -16,7 +15,7 @@ def image_depot(t: DepotType) -> Depot:
     """
     if t in DEPOT_MAP:
         return DEPOT_MAP[t]()
-    raise Exception(f'no such {t} depot')
+    return None
 
 
 def upload(content, type_list: List[DepotType] = None) -> (str, List[DepotError]):
@@ -34,6 +33,8 @@ def upload(content, type_list: List[DepotType] = None) -> (str, List[DepotError]
         type_list = DepotType
     for item in type_list:
         d = image_depot(item)
+        if not d:
+            continue
         ret = d.upload(content)
         if ret:
             return ret, err

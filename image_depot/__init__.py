@@ -4,6 +4,8 @@
 使用方式:
   1. 指定仓库上传文件
     d = image_depot(DepotType.CatBox) # 获取仓库对象
+    if d is None:  # 当前图床已失效
+        pass
     url = d.upload(image_content) #  上传二进制内容
     url = d.upload_file(file_path) # 上传文件
     if not url:  # 图片上传失败, 获取失败原因

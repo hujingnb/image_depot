@@ -34,6 +34,8 @@ DepotConfig.SmMs(token)
 
 # 选择图床对象
 d = image_depot(DepotType.CatBox)
+if d is None:  # 当前图床已失效
+    pass
 
 # 上传图片. 二进制内容
 image_content = ''
