@@ -18,6 +18,12 @@ class DepotType(Enum):
         2. 48小时候自动过期
     url: https://uguu.se/
     """
+    KawaiiSu = auto()
+    """
+    图床, 限制: 
+        1. 文件大小20MB
+    url: https://imouto.kawaii.su/
+    """
     PngCm = auto()
     """
     图床
