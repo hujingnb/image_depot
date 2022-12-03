@@ -65,6 +65,10 @@ class DepotType(Enum):
         1. 每天限制上传10张
     url: https://www.boluo.link/
     """
+    Hakaimg = auto()
+    """
+    url: https://hakaimg.com/
+    """
     ImgAx = auto()
     """
     url: https://img.ax/

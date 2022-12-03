@@ -1,4 +1,5 @@
 import os
+import random
 import uuid
 from abc import abstractmethod, ABC
 from typing import Optional
@@ -44,6 +45,17 @@ class Depot(ABC):
     def _set_error(self, err) -> None:
         self._err = DepotError(err, back_num=1)
         return None
+
+    def _random_str(self, length: int, rand_str: str = None):
+        """
+        获取指定长度的随机字符串
+        :param length:
+        :param rand_str:
+        :return:
+        """
+        if not rand_str:
+            rand_str = '0123456789abcdefghijklmnopqrstuvwxyz'
+        return ''.join(random.sample(list(rand_str) * length, length))
 
     def _random_file_name(self, content):
         """
