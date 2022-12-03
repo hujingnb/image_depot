@@ -23,8 +23,6 @@ class SmMs(Depot):
             'file': (file_name, content),
         }
         response = requests.post('https://www.boluo.link/upload/ftp', files=files)
-        print(response.status_code)
-        print(response.text)
         if response.status_code != 200:
             return self._set_error(f'upload fail. status: {response.status_code}')
         data = response.json()
