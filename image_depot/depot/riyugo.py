@@ -12,7 +12,7 @@ class Riyugo(Depot):
 
     def upload(self, content) -> Optional[str]:
         data = {
-            'uuid': 'o_1g840' + ''.join(random.sample(list('0123456789abcdefghijklmnopqrstuvwxyz') * 22, 22)),
+            'uuid': 'o_' + self._random_str(27),
             'nameMode': 'isRenameMode',
         }
         files = {

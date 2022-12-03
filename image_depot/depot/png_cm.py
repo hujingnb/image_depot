@@ -14,7 +14,7 @@ class PngCm(Depot):
 
     def upload(self, content) -> Optional[str]:
         data = {
-            'uuid': 'o_1g840' + ''.join(random.sample(list('0123456789abcdefghijklmnopqrstuvwxyz') * 21, 21)),
+            'uuid': 'o_' + self._random_str(26),
         }
         files = {
             'file': content, 

@@ -18,7 +18,7 @@ class SmMs(Depot):
     # 上传图片, 二进制内容
     def upload(self, content) -> Optional[str]:
         data = {
-            'id': 'picId_' + ''.join(random.sample(list('0123456789abcdefghijklmnopqrstuvwxyz') * 8, 8)),
+            'id': 'picId_' + self._random_str(8),
         }
         files = {
             "file": content
