@@ -6,29 +6,31 @@ from image_depot import DepotType
 from .base import Depot
 
 UPLOAD_URL_LIST = [
-    'https://uguu.se/upload.php',
-    """
-    限制: 
-        1. 文件大小最大为128MB
-        2. 48小时候自动过期
-    url: https://uguu.se/
-    """
+    # https://fileditch.com/
+    'https://up1.fileditch.com/upload.php',
+    'https://qu.ax/upload.php',
+    'https://midi.moe/upload.php',
+    'https://cockfile.com/upload.php',
     'https://imouto.kawaii.su/api/upload',
-    """
-    图床, 限制: 
-        1. 文件大小20MB
-    url: https://imouto.kawaii.su/
-    """
     'https://safe.waifuhunter.club/api/upload',
-    """
-    限制: 
-        1. 文件大小100MB
-    url: https://safe.waifuhunter.club/
-    """
+    'https://take-me-to.space/api/upload',
+    'https://files.htp.sh/api/upload',
+    'https://pomf.lain.la/upload.php',
+    'https://smutty.horse/upload.php',
+    'https://stuff.poxydoxy.com/upload.php',
+    # 48小时候自动过期
+    'https://uguu.se/upload.php',
+    # 24小时过期
+    'https://cockfile.com/upload.php',
 ]
 
 
 def set_config(upload_url_list: List[str]):
+    """
+    修改此配置, 请确认您对需要的链接了解
+    :param upload_url_list:
+    :return:
+    """
     global UPLOAD_URL_LIST
     UPLOAD_URL_LIST = upload_url_list
 
