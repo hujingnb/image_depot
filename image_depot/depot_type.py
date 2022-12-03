@@ -11,6 +11,13 @@ class DepotType(Enum):
     
     url: https://catbox.moe/
     """
+    UguuSe = auto()
+    """
+    图床, 限制: 
+        1. 文件大小最大为128MB
+        2. 48小时候自动过期
+    url: https://uguu.se/
+    """
     PngCm = auto()
     """
     图床
