@@ -11,18 +11,19 @@ class DepotType(Enum):
     
     url: https://catbox.moe/
     """
-    UguuSe = auto()
+    PomfSe = auto()
     """
-    图床, 限制: 
-        1. 文件大小最大为128MB
-        2. 48小时候自动过期
-    url: https://uguu.se/
-    """
-    KawaiiSu = auto()
-    """
-    图床, 限制: 
-        1. 文件大小20MB
-    url: https://imouto.kawaii.su/
+    一类图床. 使用同一套框架运行, 上传接口一致. 
+        只是不同人维护的不同服务.
+        因此这里对外提供一个方法, 可配置上传连接 
+    限制: 不同服务的限制不同
+    
+    可通过下方链接找到相似的站点, 要求: 
+        1. 支持匿名上传
+        2. 将上传地址放入配置中
+    当然了, 也可以不修改配置, 已经提前放入了一批上传地址
+    
+    url: https://pomf.se/
     """
     PngCm = auto()
     """
