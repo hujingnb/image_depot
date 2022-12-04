@@ -44,7 +44,13 @@ class PomfSe(Depot):
         files = {
             'files[]': (file_name, content),
         }
-        response = requests.post(upload_url, files=files)
+        try:
+            response = requests.post(upload_url, files=files)
+        except Exception as e:
+            # 因为这里会访问多个上传地址, 这次失败了继续下一个
+            # 所以要把异常自己消化掉
+            return self._set_error(e)
+
         if response.status_code != 200:
             return self._set_error(f'upload fail. code: {response.status_code}. content: {response.text}')
         data = response.json()
