@@ -95,6 +95,10 @@ class DepotType(Enum):
     """
     url: https://img.ax/
     """
+    Dig268608 = auto()
+    """
+    url: https://www.268608.com/
+    """
     HuaBan = auto()
     """
     花瓣网站的图片上传. 图片上传接口在图集上传处发现
