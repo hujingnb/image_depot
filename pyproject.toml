@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "image_depot"
-version = "0.8.2"
+version = "0.8.3"
 authors = [
   { name="hujingnb", email="hujingnb@qq.com" },
 ]
