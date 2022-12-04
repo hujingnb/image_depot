@@ -1,0 +1,52 @@
+from typing import Optional
+
+import requests
+
+from image_depot import DepotType
+from .base import Depot
+
+TOKEN = ''
+FOLDER_ID = 0
+
+
+def set_config(token: str, folder_id=0):
+    """
+    配置的获取请参考: http://doc.tucang.cc/project-1/doc-7/
+    :param token:
+    :param folder_id:
+    :return:
+    """
+    global TOKEN, FOLDER_ID
+    TOKEN = token
+    FOLDER_ID = folder_id
+
+
+class Tucang(Depot):
+    @classmethod
+    def depot_type(cls) -> DepotType:
+        return DepotType.Tucang
+
+    # 上传图片, 二进制内容
+    def _upload(self, content) -> Optional[str]:
+        if not TOKEN:
+            return self._set_error('token is empty')
+        tmp_filename = self._random_file_name(content)
+        if not tmp_filename:
+            return None
+        data = {
+            'token': TOKEN,
+        }
+        if FOLDER_ID:
+            data['folderId'] = FOLDER_ID
+        files = {
+            "file": (tmp_filename, content)
+        }
+        response = requests.post("https://tucang.cc/api/v1/upload", files=files, data=data)
+        if response.status_code != 200:
+            return self._set_error(f'request fail. code: {response.status_code}')
+        #  检查返回数据
+        data = response.json()
+        url = data.get('data', {}).get('url')
+        if not data.get('success') or not url:
+            return self._set_error(f'server return error. {response.text}')
+        return url

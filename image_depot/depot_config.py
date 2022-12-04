@@ -7,6 +7,7 @@ from .depot.img_url import set_config as img_url_set_config
 from .depot.hua_ban import set_config as hua_ban_set_config
 from .depot.xywm import set_config as xywm_set_config
 from .depot.pomf_se import set_config as pomf_se_set_config
+from .depot.tucnag import set_config as tucang_set_config
 
 
 def _default_set_config(*arg1, **arg2):
@@ -29,3 +30,4 @@ class DepotConfig:
     HuaBan = hua_ban_set_config
     Xywm = xywm_set_config
     PomfSe = pomf_se_set_config
+    Tucang = tucang_set_config

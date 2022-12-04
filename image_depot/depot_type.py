@@ -91,6 +91,11 @@ class DepotType(Enum):
     """
     url: https://hakaimg.com/
     """
+    Tucang = auto()
+    """
+    图仓
+    url: https://tucang.cc/
+    """
     ImgAx = auto()
     """
     url: https://img.ax/
