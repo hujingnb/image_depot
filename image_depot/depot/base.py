@@ -79,7 +79,7 @@ class Depot(ABC):
         with open(tmp_file, 'wb') as f:
             f.write(content)
         suffix = filetype.guess_extension(tmp_file)
+        os.remove(tmp_file)
         if not suffix:
             return self._set_error(f'parse mimetype error.')
-        os.remove(tmp_file)
         return str(uuid.uuid4()) + '.' + suffix
