@@ -28,7 +28,7 @@ class SmMs(Depot):
         return DepotType.SmMs
 
     # 上传图片, 二进制内容
-    def upload(self, content) -> Optional[str]:
+    def _upload(self, content) -> Optional[str]:
         if not TOKEN:
             return self._set_error('token is empty')
         data = {

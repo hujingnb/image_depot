@@ -45,7 +45,7 @@ class Github(Depot):
         return DepotType.Github
 
     # 上传图片, 二进制内容
-    def upload(self, content) -> Optional[str]:
+    def _upload(self, content) -> Optional[str]:
         if not USERNAME or not REPO or not SAVE_PATH or not TOKEN:
             return self._set_error('config is miss')
         # 获取文件名称

@@ -12,7 +12,7 @@ class PngCm(Depot):
     def depot_type(cls) -> DepotType:
         return DepotType.PngCm
 
-    def upload(self, content) -> Optional[str]:
+    def _upload(self, content) -> Optional[str]:
         data = {
             'uuid': 'o_' + self._random_str(26),
         }

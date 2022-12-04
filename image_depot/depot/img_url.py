@@ -25,7 +25,7 @@ class ImgUrl(Depot):
     def depot_type(cls) -> DepotType:
         return DepotType.ImgUrl
 
-    def upload(self, content) -> Optional[str]:
+    def _upload(self, content) -> Optional[str]:
         if not TOKEN or not UID:
             return self._set_error('token or uid is empty')
         file_name = self._random_file_name(content)

@@ -14,7 +14,7 @@ class Imgbb(Depot):
         return DepotType.Imgbb
 
     # 上传图片, 二进制内容
-    def upload(self, content) -> Optional[str]:
+    def _upload(self, content) -> Optional[str]:
         session = requests.session()
         # 访问首页, 获取token
         response = session.get('https://imgbb.com/')

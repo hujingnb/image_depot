@@ -16,7 +16,7 @@ class SmMs(Depot):
         return DepotType.ImgAx
 
     # 上传图片, 二进制内容
-    def upload(self, content) -> Optional[str]:
+    def _upload(self, content) -> Optional[str]:
         data = {
             'id': 'picId_' + self._random_str(8),
         }

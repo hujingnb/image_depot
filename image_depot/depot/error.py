@@ -1,19 +1,17 @@
 """
-定义仓库
+定义仓库异常
 @author hujing
 """
-import traceback
 
 
 class DepotError:
-    def __init__(self, err, back_num=0):
+    def __init__(self, err, tb):
         """
         :param err:
-        :param back_num: 堆栈回溯的数量. 在打印堆栈信息的时候去掉最后几个
+        :param tb: 堆栈信息
         """
         self._err = err
-        #  最后一个元素是当前构造函数, 去掉
-        self._traceback = traceback.extract_stack()[0:-1-back_num]
+        self._traceback = tb
 
     def error(self):
         return self._err
@@ -22,5 +20,5 @@ class DepotError:
         return self._traceback
 
     def __str__(self):
-        return self._err + '\n' + \
-               ''.join(traceback.format_list(self._traceback))
+        return self.error() + '\n' + \
+            self.traceback()

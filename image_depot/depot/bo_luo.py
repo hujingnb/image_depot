@@ -15,7 +15,7 @@ class SmMs(Depot):
         return DepotType.BoLuo
 
     # 上传图片, 二进制内容
-    def upload(self, content) -> Optional[str]:
+    def _upload(self, content) -> Optional[str]:
         file_name = self._random_file_name(content)
         if not file_name:
             return None

@@ -12,7 +12,7 @@ class NiuPic(Depot):
         return DepotType.NiuPic
 
     # 上传图片, 二进制内容
-    def upload(self, content) -> Optional[str]:
+    def _upload(self, content) -> Optional[str]:
         files = {
             'file': content,
         }

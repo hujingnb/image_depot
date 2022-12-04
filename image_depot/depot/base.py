@@ -1,5 +1,6 @@
 import os
 import random
+import traceback
 import uuid
 from abc import abstractmethod, ABC
 from typing import Optional
@@ -22,8 +23,15 @@ class Depot(ABC):
         pass
 
     # 上传图片, 二进制内容
-    @abstractmethod
     def upload(self, content) -> Optional[str]:
+        try:
+            return self._upload(content)
+        except Exception as e:
+            tb = traceback.format_exc()
+            return self._set_error(e, tb)
+
+    @abstractmethod
+    def _upload(self, content) -> Optional[str]:
         pass
 
     # 上传图片, 本地路径
@@ -42,8 +50,11 @@ class Depot(ABC):
             return self._err
         return None
 
-    def _set_error(self, err) -> None:
-        self._err = DepotError(err, back_num=1)
+    def _set_error(self, err, tb: str = '') -> None:
+        if not tb:  # 未指定堆栈信息, 获取调用方
+            tb = traceback.extract_stack()[0:-1]
+            tb = ''.join(traceback.format_list(tb))
+        self._err = DepotError(str(err), tb)
         return None
 
     def _random_str(self, length: int, rand_str: str = None):

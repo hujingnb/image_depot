@@ -21,7 +21,7 @@ class HuaBan(Depot):
     def depot_type(cls) -> DepotType:
         return DepotType.HuaBan
 
-    def upload(self, content) -> Optional[str]:
+    def _upload(self, content) -> Optional[str]:
         if not COOKIE:
             return self._set_error('cookie is empty')
         files = {

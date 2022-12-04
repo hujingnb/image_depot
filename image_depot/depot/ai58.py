@@ -14,7 +14,7 @@ class Ai58(Depot):
         return DepotType.Ai58
 
     # 上传图片, 二进制内容
-    def upload(self, content) -> Optional[str]:
+    def _upload(self, content) -> Optional[str]:
         data = {
             'Pic-Size': '0*0',
             'Pic-Encoding': 'base64',

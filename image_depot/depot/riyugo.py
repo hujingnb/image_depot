@@ -10,7 +10,7 @@ class Riyugo(Depot):
     def depot_type(cls) -> DepotType:
         return DepotType.Riyugo
 
-    def upload(self, content) -> Optional[str]:
+    def _upload(self, content) -> Optional[str]:
         data = {
             'uuid': 'o_' + self._random_str(27),
             'nameMode': 'isRenameMode',

@@ -27,7 +27,7 @@ class Xywm(Depot):
     def depot_type(cls) -> DepotType:
         return DepotType.Xywm
 
-    def upload(self, content) -> Optional[str]:
+    def _upload(self, content) -> Optional[str]:
         global TOKEN
         # 若存在用户名和密码, 获取 token
         if not TOKEN and EMAIL and PASSWORD:

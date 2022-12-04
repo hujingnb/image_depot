@@ -12,7 +12,7 @@ class CatBox(Depot):
         return DepotType.CatBox
 
     # 上传图片, 二进制内容
-    def upload(self, content) -> Optional[str]:
+    def _upload(self, content) -> Optional[str]:
         data = {
             'reqtype': 'fileupload',
             'userhash': '',

@@ -56,7 +56,7 @@ class PomfSe(Depot):
             return self._set_error(response.text)
         return url
 
-    def upload(self, content) -> Optional[str]:
+    def _upload(self, content) -> Optional[str]:
         if len(UPLOAD_URL_LIST) <= 0:
             return self._set_error('No service is available')
 
