@@ -6,12 +6,16 @@ from abc import abstractmethod, ABC
 from typing import Optional
 import filetype
 from image_depot import DepotType
+from .depot_config import DepotConfig, get_global_config
 from .error import DepotError
 
 
 class Depot(ABC):
+    _config: DepotConfig
+
     def __init__(self):
         self._err = None
+        self._config = get_global_config()
 
     @classmethod
     @abstractmethod
@@ -21,6 +25,13 @@ class Depot(ABC):
         :return:
         """
         pass
+
+    def set_config(self, config: DepotConfig):
+        """
+        次函数用于自定义配置
+        :return:
+        """
+        self._config = config
 
     # 上传图片, 二进制内容
     def upload(self, content) -> Optional[str]:

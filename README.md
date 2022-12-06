@@ -28,16 +28,21 @@ pip install image-depot
 ```
 
 ```python
-from image_depot import image_depot, DepotType, upload, upload_file, DepotConfig
+from image_depot import image_depot, DepotType, upload, upload_file, DepotConfig, set_global_config
 
 # 部分图床需要添加配置才能使用
-token = ''
-DepotConfig.SmMs(token)
+config = DepotConfig()
+config.sm_ms.token = ''
+# 全局配置
+set_global_config(config)
 
 # 选择图床对象
 d = image_depot(DepotType.CatBox)
 if d is None:  # 当前图床已失效
     pass
+# 可以为每次上传使用不同的配置信息
+# 此配置优先级高于 global_config
+d.set_config(config)  
 
 # 上传图片. 二进制内容
 image_content = ''

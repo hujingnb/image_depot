@@ -1,24 +1,7 @@
 from typing import Optional
-
 import requests
-
 from image_depot import DepotType
 from .base import Depot
-
-TOKEN = ''
-FOLDER_ID = 0
-
-
-def set_config(token: str, folder_id=0):
-    """
-    配置的获取请参考: http://doc.tucang.cc/project-1/doc-7/
-    :param token:
-    :param folder_id:
-    :return:
-    """
-    global TOKEN, FOLDER_ID
-    TOKEN = token
-    FOLDER_ID = folder_id
 
 
 class Tucang(Depot):
@@ -28,16 +11,17 @@ class Tucang(Depot):
 
     # 上传图片, 二进制内容
     def _upload(self, content) -> Optional[str]:
-        if not TOKEN:
+        conf = self._config.tucang
+        if not conf.token:
             return self._set_error('token is empty')
         tmp_filename = self._random_file_name(content)
         if not tmp_filename:
             return None
         data = {
-            'token': TOKEN,
+            'token': conf.token,
         }
-        if FOLDER_ID:
-            data['folderId'] = FOLDER_ID
+        if conf.folder_id:
+            data['folderId'] = conf.folder_id
         files = {
             "file": (tmp_filename, content)
         }

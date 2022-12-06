@@ -3,18 +3,6 @@ from image_depot import DepotType
 from .base import Depot
 import requests
 
-COOKIE = ''
-
-
-def set_config(cooke: str):
-    """
-    :param cooke: 登录网站 https://huaban.com 后
-        将请求 header 中的 cookie 取出
-    :return:
-    """
-    global COOKIE
-    COOKIE = cooke
-
 
 class HuaBan(Depot):
     @classmethod
@@ -22,7 +10,8 @@ class HuaBan(Depot):
         return DepotType.HuaBan
 
     def _upload(self, content) -> Optional[str]:
-        if not COOKIE:
+        cookie = self._config.hua_ban.cookie
+        if not cookie:
             return self._set_error('cookie is empty')
         files = {
             'file': content,
@@ -30,7 +19,7 @@ class HuaBan(Depot):
         headers = {
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) '
                           'Chrome/107.0.0.0 Safari/537.36',
-            'Cookie': COOKIE,
+            'Cookie': cookie,
         }
         response = requests.post('https://api.huaban.com/upload', files=files, headers=headers)
         if response.status_code != 200:

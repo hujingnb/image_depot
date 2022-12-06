@@ -16,9 +16,16 @@
 
 配置:
   部分仓库需要进行配置才能使用, 例如配置 sm.ms 图床
-    DepotConfig.SmMs(token)
+    config = DepotConfig()
+    config.sm_ms.token = ''
+    # 全局配置
+    set_global_config(config)
+    # 单次上传配置
+    d = image_depot(DepotType.CatBox)
+    d.set_config(config)
 
 """
 from .depot_type import DepotType
 from .image_depot import image_depot, upload, upload_file
-from .depot_config import DepotConfig
+from .depot import DepotConfig, set_global_config
+

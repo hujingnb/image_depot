@@ -1,25 +1,7 @@
-import re
-import time
-import uuid
 from typing import Optional
-
 import requests
-
 from image_depot import DepotType
 from .base import Depot
-
-TOKEN = ''
-
-
-def set_config(token):
-    """
-    设置 token \n
-    token 获取地址: https://sm.ms/home/apitoken \n
-    :param token:
-    :return:
-    """
-    global TOKEN
-    TOKEN = token
 
 
 class SmMs(Depot):
@@ -29,13 +11,14 @@ class SmMs(Depot):
 
     # 上传图片, 二进制内容
     def _upload(self, content) -> Optional[str]:
-        if not TOKEN:
+        conf = self._config.sm_ms
+        if not conf.token:
             return self._set_error('token is empty')
         data = {
             'format': 'json',
         }
         headers = {
-            'Authorization': TOKEN,
+            'Authorization': conf.token,
         }
         files = {
             'smfile': content,
