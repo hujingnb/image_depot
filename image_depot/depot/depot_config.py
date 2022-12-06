@@ -12,6 +12,21 @@ class ConfigBase:
         """
         return None
 
+    def copy(self) -> 'ConfigBase':
+        """
+        当前类型深度克隆
+        :return:
+        """
+        ret = self.__class__()
+        for field in dir(self):
+            if field.startswith('_'):
+                continue
+            value = getattr(self, field)
+            if isinstance(value, ConfigBase):
+                value = value.copy()
+            setattr(ret, field, value)
+        return ret
+
 
 class DepotConfig(ConfigBase):
     class Smms(ConfigBase):
@@ -19,18 +34,18 @@ class DepotConfig(ConfigBase):
         token 获取地址: https://sm.ms/home/apitoken \n
         """
         token: str
+
     sm_ms = Smms()
 
-
     class Github(ConfigBase):
-        username: str # 用户名
+        username: str  # 用户名
         repo: str  # 仓库名称
         token: str
         """
         获取地址: https://github.com/settings/tokens <br>
         创建 token 时, 权限选中 repo 的所有
         """
-        save_path: str = ''   # 文件保存路径. eg: content/img
+        save_path: str = ''  # 文件保存路径. eg: content/img
         use_jsdelivr: bool = True
         """
         是否使用 jsdelivr 加速 <br>
@@ -38,11 +53,13 @@ class DepotConfig(ConfigBase):
         默认为 True
         """
         branch: str = 'master'  # 指定分支名称, 分支必须存在. 默认'master'
+
     github = Github()
 
     class ImgUrl(ConfigBase):
         token: str  # 获取地址: https://www.imgurl.org/vip/manage/mytoken
         uid: str  # 与 token 一起获取
+
     img_url = ImgUrl()
 
     class HuaBan(ConfigBase):
@@ -51,11 +68,13 @@ class DepotConfig(ConfigBase):
         登录网站 https://huaban.com 后
         将请求 header 中的 cookie 取出
         """
+
     hua_ban = HuaBan()
 
     class Xywm(ConfigBase):
         email: str
         password: str
+
     xywm = Xywm()
 
     class PomfSe(ConfigBase):
@@ -77,14 +96,15 @@ class DepotConfig(ConfigBase):
             # 24小时过期
             'https://cockfile.com/upload.php',
         ]
+
     pomf_se = PomfSe()
 
     class Tucang(ConfigBase):
         # 配置的获取请参考: http://doc.tucang.cc/project-1/doc-7/
         token: str
         folder_id: str = 0
+
     tucang = Tucang()
-    # Tucang = tucang_set_config
 
 
 _global_config = DepotConfig()
