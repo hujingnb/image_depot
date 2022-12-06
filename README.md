@@ -27,22 +27,15 @@
 pip install image-depot
 ```
 
-```python
-from image_depot import image_depot, DepotType, upload, upload_file, DepotConfig, set_global_config
+指定单个图床进行上传
 
-# 部分图床需要添加配置才能使用
-config = DepotConfig()
-config.sm_ms.token = ''
-# 全局配置
-set_global_config(config)
+```python
+from image_depot import image_depot, DepotType
 
 # 选择图床对象
 d = image_depot(DepotType.CatBox)
 if d is None:  # 当前图床已失效
     pass
-# 可以为每次上传使用不同的配置信息
-# 此配置优先级高于 global_config
-d.set_config(config)  
 
 # 上传图片. 二进制内容
 image_content = ''
@@ -52,9 +45,39 @@ if not image_url:  # 图片上传失败, 获取失败原因
 # 上传图片, 使用本地文件路径
 file_path = ''
 image_url = d.upload_file(file_path)
-
-# 依次尝试所有图床, 返回第一个成功的. 
-url, err = upload(image_content)
-upload_file(file_path)
 ```
+
+多个图床依次尝试上传: 
+
+```python
+from image_depot import upload, upload_file, DepotType
+
+type_list = [DepotType.SmMs]
+# 上传图片. 二进制内容
+image_content = ''
+url, err = upload(image_content, type_list=type_list)
+# 依次尝试所有图床, 返回第一个成功的. 
+file_path = ''
+upload_file(file_path, type_list=type_list)
+```
+
+图床配置: 
+
+```python
+from image_depot import image_depot, DepotType, upload, upload_file, DepotConfig, set_global_config
+
+# 部分图床需要添加配置才能使用
+# 全局配置
+config = DepotConfig()
+config.sm_ms.token = ''
+set_global_config(config)
+
+# 可以为每次上传使用不同的配置信息
+# 此配置优先级高于 global_config
+d = image_depot(DepotType.CatBox)
+d.set_config(config)
+upload('', config=config)
+upload_file('', config=config)
+```
+
 
