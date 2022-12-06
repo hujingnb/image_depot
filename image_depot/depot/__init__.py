@@ -1,7 +1,7 @@
 import os
 from .base import Depot
 from .error import DepotError
-from .depot_config import set_global_config, DepotConfig
+from .depot_config import set_global_config, DepotConfig, get_config_by_dict
 
 # 整理所有的类型 map, 方便获取的时候加速
 DEPOT_MAP = {}

@@ -27,5 +27,5 @@
 """
 from .depot_type import DepotType
 from .image_depot import image_depot, upload, upload_file
-from .depot import DepotConfig, set_global_config
+from .depot import DepotConfig, set_global_config, get_config_by_dict
 

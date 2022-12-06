@@ -1,6 +1,7 @@
 """
 @author hujing
 """
+from typing import Union
 
 
 class ConfigBase:
@@ -108,6 +109,29 @@ class DepotConfig(ConfigBase):
 
 
 _global_config = DepotConfig()
+
+
+def get_config_by_dict(data: dict) -> Union[DepotConfig, ConfigBase]:
+    """
+    使用字典初始化配置
+    外部配置可使用 yaml/json/xml 等不限, 自行转换为字典即可
+    :param data:
+    :return:
+    """
+    ret = DepotConfig()
+
+    def set_config_by_dict(obj: ConfigBase, tmp_data: dict):
+        for field in tmp_data:
+            if not hasattr(obj, field):
+                continue
+            value = getattr(obj, field)
+            if isinstance(value, ConfigBase):
+                set_config_by_dict(value, tmp_data.get(field))
+            else:
+                setattr(obj, field, tmp_data.get(field))
+
+    set_config_by_dict(ret, data)
+    return ret
 
 
 def set_global_config(config: DepotConfig):
