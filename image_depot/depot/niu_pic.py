@@ -13,10 +13,19 @@ class NiuPic(Depot):
 
     # 上传图片, 二进制内容
     def _upload(self, content) -> Optional[str]:
+        file_name = self._random_file_name(content)
+        if not file_name:
+            return None
         files = {
-            'file': content,
+            'file': (file_name, content),
         }
-        response = requests.post('https://www.niupic.com/api/upload', files=files)
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) '
+                          'Chrome/107.0.0.0 Safari/537.36',
+            'origin': 'https://www.niupic.com',
+            'referer': 'https://www.niupic.com/',
+        }
+        response = requests.post('https://www.niupic.com/api/upload', files=files, headers=headers)
         if response.status_code != 200:
             return self._set_error(f'upload fail. code: {response.status_code}. content: {response.text}')
         data = response.json()
