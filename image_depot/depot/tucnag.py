@@ -30,6 +30,8 @@ class Tucang(Depot):
             return self._set_error(f'request fail. code: {response.status_code}')
         #  检查返回数据
         data = response.json()
+        if not data.get('success'):
+            return self._set_error(data.get('msg', response.text))
         url = data.get('data', {}).get('url')
         if not data.get('success') or not url:
             return self._set_error(f'server return error. {response.text}')
