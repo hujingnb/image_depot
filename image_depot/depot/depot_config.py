@@ -34,14 +34,14 @@ class DepotConfig(ConfigBase):
         """
         token 获取地址: https://sm.ms/home/apitoken \n
         """
-        token: str
+        token: str = ''
 
     sm_ms = Smms()
 
     class Github(ConfigBase):
-        username: str  # 用户名
-        repo: str  # 仓库名称
-        token: str
+        username: str = ''  # 用户名
+        repo: str = ''  # 仓库名称
+        token: str = ''
         """
         获取地址: https://github.com/settings/tokens <br>
         创建 token 时, 权限选中 repo 的所有
@@ -58,13 +58,13 @@ class DepotConfig(ConfigBase):
     github = Github()
 
     class ImgUrl(ConfigBase):
-        token: str  # 获取地址: https://www.imgurl.org/vip/manage/mytoken
-        uid: str  # 与 token 一起获取
+        token: str = ''  # 获取地址: https://www.imgurl.org/vip/manage/mytoken
+        uid: str = ''  # 与 token 一起获取
 
     img_url = ImgUrl()
 
     class HuaBan(ConfigBase):
-        cookie: str
+        cookie: str = ''
         """
         登录网站 https://huaban.com 后
         将请求 header 中的 cookie 取出
@@ -73,8 +73,8 @@ class DepotConfig(ConfigBase):
     hua_ban = HuaBan()
 
     class Xywm(ConfigBase):
-        email: str
-        password: str
+        email: str = ''
+        password: str = ''
 
     xywm = Xywm()
 
@@ -102,7 +102,7 @@ class DepotConfig(ConfigBase):
 
     class Tucang(ConfigBase):
         # 配置的获取请参考: http://doc.tucang.cc/project-1/doc-7/
-        token: str
+        token: str = ''
         folder_id: str = 0
 
     tucang = Tucang()
