@@ -77,6 +77,8 @@ class DepotType(Enum):
     限制: 
         1. 免费账号限制存储空间(可注册多个账号)
         2. 图片链接空 referer 访问时, 会重定向到图床网址
+        3. 每分钟上传限制20张
+        4. 每日上传限制100张
     url: https://sm.ms/
     
     image: https://s2.loli.net/2022/12/04/XDt4H1zyMi6QvJ7.jpg
