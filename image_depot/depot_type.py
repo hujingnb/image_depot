@@ -109,6 +109,13 @@ class DepotType(Enum):
     
     image: https://s1.boluo.link/imgs/2022/12/04/7bde14bb7169b7f2.jpg
     """
+    Postimages = auto()
+    """
+    缺点: 
+        1. 每次上传图片需要访问3次接口
+        2. 图片链接空 referer 访问时, 会重定向到图床网址
+    url: https://postimages.org/
+    """
     Hakaimg = auto()
     """
     url: https://hakaimg.com/
