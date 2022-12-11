@@ -30,6 +30,12 @@ class ConfigBase:
 
 
 class DepotConfig(ConfigBase):
+    def __getattr__(self, name):
+        # 返回类
+        # 当某个仓库失效时, 可以直接删除
+        # 调用者仍然可以访问已删除的字段, 版本升级后不会报错
+        return ConfigBase()
+
     class Smms(ConfigBase):
         """
         token 获取地址: https://sm.ms/home/apitoken \n
