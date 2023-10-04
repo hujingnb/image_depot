@@ -168,3 +168,11 @@ class DepotType(Enum):
     
     image: https://cdn.jsdelivr.net/gh/hujingnb/img@test/content/img/f27ad12e-9bdb-4ab5-b2f7-91c0eff0ea55.jpg
     """
+    Image23 = auto()
+    """
+    限制: 
+        1. 单文件最大5M
+    url: https://23img.com/
+    
+    image: https://23img.com/i/2023/10/04/w7igrm.jpg
+    """
