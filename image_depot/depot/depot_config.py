@@ -113,6 +113,13 @@ class DepotConfig(ConfigBase):
 
     tucang = Tucang()
 
+    class BoLuo(ConfigBase):
+        # 配置的获取请参考: https://www.boluo.link/vip/manage/mytoken
+        token: str = ''
+        uid: str = ''
+
+    bo_luo = BoLuo()
+
 
 _global_config = DepotConfig()
 

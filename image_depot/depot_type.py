@@ -105,7 +105,8 @@ class DepotType(Enum):
     BoLuo = auto()
     """
     图床, 限制: 
-        1. 每天限制上传10张
+        1. 每天限制上传50张, 每月上传1000张 (可自行付费扩容)
+        2. 必须注册
     url: https://www.boluo.link/
     
     image: https://s1.boluo.link/imgs/2022/12/04/7bde14bb7169b7f2.jpg
