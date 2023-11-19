@@ -138,14 +138,6 @@ class DepotType(Enum):
     
     image: https://img.urlnode.com/file/ccd2064575362a738e943.jpg
     """
-    Dig268608 = auto()
-    """
-    url: https://www.268608.com/
-    
-    image: https://www.268608.com/imgs/2022/12/04/7bde14bb7169b7f2.jpg
-    
-    图床没了...
-    """
     HuaBan = auto()
     """
     花瓣网站的图片上传. 图片上传接口在图集上传处发现
@@ -173,19 +165,29 @@ class DepotType(Enum):
     
     image: https://cdn.jsdelivr.net/gh/hujingnb/img@test/content/img/f27ad12e-9bdb-4ab5-b2f7-91c0eff0ea55.jpg
     """
-    Image23 = auto()
-    """
-    限制: 
-        1. 单文件最大5M
-    url: https://23img.com/
-    
-    image: https://23img.com/i/2023/10/04/w7igrm.jpg
-    
-    图床没了...
-    """
     PzAl = auto()
     """
     url: https://pz.al/
     
     image: https://f.pz.al/pzal/2023/11/19/37bd71a58ad86.jpg
+    """
+
+    '''============================已不再支持的图床, 保留是为了旧版本升级不报错'''
+    Image23 = auto()
+    """
+    限制: 
+        1. 单文件最大5M
+    url: https://23img.com/
+
+    image: https://23img.com/i/2023/10/04/w7igrm.jpg
+
+    图床没了...
+    """
+    Dig268608 = auto()
+    """
+    url: https://www.268608.com/
+
+    image: https://www.268608.com/imgs/2022/12/04/7bde14bb7169b7f2.jpg
+
+    图床没了...
     """
