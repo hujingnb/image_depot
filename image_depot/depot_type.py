@@ -143,6 +143,8 @@ class DepotType(Enum):
     url: https://www.268608.com/
     
     image: https://www.268608.com/imgs/2022/12/04/7bde14bb7169b7f2.jpg
+    
+    图床没了...
     """
     HuaBan = auto()
     """
