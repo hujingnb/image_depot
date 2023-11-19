@@ -50,6 +50,7 @@ class DepotType(Enum):
     限制: 
         1. 图片3天内有效
         2. 单文件最大5M
+        3. 免费版, 页面22:00 ~ 07:00 关闭上传功能
     url: https://zixiaoyun.com/
     
     image: https://beta.glilmu.com/i/2022/12/04/p6eo39.png
