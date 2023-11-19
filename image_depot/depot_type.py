@@ -178,3 +178,9 @@ class DepotType(Enum):
     
     image: https://23img.com/i/2023/10/04/w7igrm.jpg
     """
+    PzAl = auto()
+    """
+    url: https://pz.al/
+    
+    image: https://f.pz.al/pzal/2023/11/19/37bd71a58ad86.jpg
+    """

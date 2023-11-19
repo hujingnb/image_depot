@@ -120,6 +120,13 @@ class DepotConfig(ConfigBase):
 
     bo_luo = BoLuo()
 
+    class PzAl(ConfigBase):
+        # 非必填, 游客也可以上传, 但会有限制
+        email: str = ''
+        password: str = ''
+
+    pz_al = PzAl()
+
 
 _global_config = DepotConfig()
 
