@@ -79,8 +79,8 @@ class DepotConfig(ConfigBase):
     hua_ban = HuaBan()
 
     class Xywm(ConfigBase):
-        email: str = ''
-        password: str = ''
+        # key 获取地址: https://pic.xywm.ltd/settings/api
+        api_key: str = ''
 
     xywm = Xywm()
 

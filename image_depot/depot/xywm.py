@@ -1,3 +1,4 @@
+import base64
 from typing import Optional
 import requests
 from image_depot import DepotType
@@ -15,35 +16,23 @@ class Xywm(Depot):
 
     def _upload(self, content) -> Optional[str]:
         conf = self._config.xywm
-        # 若存在用户名和密码, 获取 token
-        if not self._token and conf.email and conf.password:
-            data = {
-                'email': conf.email,
-                'password': conf.password
-            }
-            response = requests.post("https://pic.xywm.ltd/api/v1/tokens", data=data)
-            if response.status_code == 200:
-                self._token = response.json().get('data', {}).get('token')
-
+        if not conf.api_key:
+            return self._set_error('api_key is empty')
         # 上传图片
-        tmp_filename = self._random_file_name(content)
-        if not tmp_filename:
-            return None
-        files = {
-            "file": (tmp_filename, content)
+        data = {
+            'source': base64.b64encode(content).decode('utf-8'),
         }
         headers = {
             "Accept": "application/json",
+            'X-API-Key': conf.api_key
         }
-        if self._token:
-            headers['Authorization'] = f'Bearer {self._token}'
-        response = requests.post("https://pic.xywm.ltd/api/v1/upload", headers=headers, files=files)
+        response = requests.post("https://pic.xywm.ltd/api/1/upload", headers=headers, data=data)
         if response.status_code != 200:
             return self._set_error(f'upload fail. code: {response.status_code}')
         data = response.json()
-        if not data.get('status'):
+        if data.get('status_code') != 200:
             return self._set_error(f'upload fail. {response.text}')
-        url = data.get('data', {}).get('links', {}).get('url')
+        url = data.get('image', {}).get('image', {}).get('url')
         if not url:
             return self._set_error(f'response error. {response.text}')
         return url
