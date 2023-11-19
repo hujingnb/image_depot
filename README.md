@@ -34,9 +34,6 @@ from image_depot import image_depot, DepotType
 
 # 选择图床对象
 d = image_depot(DepotType.CatBox)
-if d is None:  # 当前图床已失效
-    pass
-
 # 上传图片. 二进制内容
 image_content = ''
 image_url = d.upload(image_content)
@@ -53,7 +50,7 @@ image_url = d.upload_file(file_path)
 from image_depot import upload, upload_file, DepotType
 
 type_list = [DepotType.SmMs]
-# 上传图片. 二进制内容
+# 上传图片. 二进制内容. 若所有图床都上传失败, 则返回空字符串以及所有错误信息
 image_content = ''
 url, err = upload(image_content, type_list=type_list)
 # 依次尝试所有图床, 返回第一个成功的. 

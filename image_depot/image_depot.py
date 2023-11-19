@@ -5,6 +5,7 @@ import os
 from typing import List, Optional
 from .depot import Depot, DEPOT_MAP, DepotError, DepotConfig
 from .depot_type import DepotType
+from .depot.none_type import NoneType
 
 
 def image_depot(t: DepotType, config: Optional[DepotConfig] = None) -> Optional[Depot]:
@@ -19,7 +20,7 @@ def image_depot(t: DepotType, config: Optional[DepotConfig] = None) -> Optional[
         if config:
             d.set_config(config)
         return d
-    return None
+    return NoneType(t)
 
 
 def upload(content, type_list: List[DepotType] = None, config: Optional[DepotConfig] = None) -> (str, List[DepotError]):
@@ -38,11 +39,9 @@ def upload(content, type_list: List[DepotType] = None, config: Optional[DepotCon
         type_list = DepotType
     for item in type_list:
         d = image_depot(item, config)
-        if not d:
-            continue
         ret = d.upload(content)
         if ret:
-            return ret, err
+            return ret, None
         else:
             err.append(d.error())
     return None, err
