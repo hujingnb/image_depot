@@ -170,29 +170,26 @@ class DepotType(Enum):
     '''============================已不再支持的图床, 保留是为了旧版本升级不报错'''
     Image23 = auto()
     """
+    :deprecated
     限制: 
         1. 单文件最大5M
     url: https://23img.com/
 
     image: https://23img.com/i/2023/10/04/w7igrm.jpg
-
-    图床没了...
     """
     Dig268608 = auto()
     """
+    :deprecated
     url: https://www.268608.com/
 
     image: https://www.268608.com/imgs/2022/12/04/7bde14bb7169b7f2.jpg
-
-    图床没了...
     """
     PngCm = auto()
     """
+    :deprecated
     图床
 
     url: https://png.cm/
 
     image: https://i2.100024.xyz/2022/12/04/p5v5mj.webp
-    
-    图床没了...
     """
