@@ -29,7 +29,7 @@ class SmMs(Depot):
             'uid': conf.uid,
             'token': conf.token,
         }
-        response = requests.post('https://www.boluo.link//api/v2/upload', files=files, data=data)
+        response = requests.post('https://www.boluo.link/api/v2/upload', files=files, data=data)
         if response.status_code != 200:
             return self._set_error(f'upload fail. status: {response.status_code}')
         data = response.json()
