@@ -12,6 +12,9 @@ class DepotType(Enum):
     url: https://catbox.moe/
     
     image: https://files.catbox.moe/pzchfp
+    
+    注意: 
+        * 此图床国内无法访问
     """
     PomfSe = auto()
     """
@@ -36,14 +39,6 @@ class DepotType(Enum):
     url: https://pomf.se/
     
     image: https://s1.fileditch.ch/eUrajjLmzsKuXEDRzaBZ.jpg
-    """
-    PngCm = auto()
-    """
-    图床
-    
-    url: https://png.cm/
-    
-    image: https://i2.100024.xyz/2022/12/04/p5v5mj.webp
     """
     Riyugo = auto()
     """
@@ -189,5 +184,15 @@ class DepotType(Enum):
 
     image: https://www.268608.com/imgs/2022/12/04/7bde14bb7169b7f2.jpg
 
+    图床没了...
+    """
+    PngCm = auto()
+    """
+    图床
+
+    url: https://png.cm/
+
+    image: https://i2.100024.xyz/2022/12/04/p5v5mj.webp
+    
     图床没了...
     """
