@@ -50,14 +50,6 @@ class DepotType(Enum):
     
     image: https://beta.glilmu.com/i/2022/12/04/p6eo39.png
     """
-    NiuPic = auto()
-    """
-    牛客网
-    
-    url: https://www.niupic.com/
-    
-    image: https://i.niupic.com/images/2022/12/04/abCy.png
-    """
     ImgUrl = auto()
     """
     免费账户有上传限制:
@@ -192,4 +184,13 @@ class DepotType(Enum):
     url: https://png.cm/
 
     image: https://i2.100024.xyz/2022/12/04/p5v5mj.webp
+    """
+    NiuPic = auto()
+    """
+    :deprecated
+    牛客网
+
+    url: https://www.niupic.com/
+
+    image: https://i.niupic.com/images/2022/12/04/abCy.png
     """
