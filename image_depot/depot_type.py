@@ -132,13 +132,6 @@ class DepotType(Enum):
     image: https://img.tucang.cc/api/image/show/87917ba87bde14bb7169b7f225e430ac
     """
 
-    ImgAx = auto()
-    """
-    url: https://img.ax/
-    
-    image: https://img.urlnode.com/file/ccd2064575362a738e943.jpg
-    """
-
     HuaBan = auto()
     """
     花瓣网站的图片上传. 图片上传接口在图集上传处发现
@@ -186,6 +179,7 @@ class DepotType(Enum):
 
     image: https://23img.com/i/2023/10/04/w7igrm.jpg
     """
+
     Dig268608 = auto()
     """
     :deprecated
@@ -193,6 +187,7 @@ class DepotType(Enum):
 
     image: https://www.268608.com/imgs/2022/12/04/7bde14bb7169b7f2.jpg
     """
+
     PngCm = auto()
     """
     :deprecated
@@ -202,6 +197,7 @@ class DepotType(Enum):
 
     image: https://i2.100024.xyz/2022/12/04/p5v5mj.webp
     """
+
     NiuPic = auto()
     """
     :deprecated
@@ -210,4 +206,13 @@ class DepotType(Enum):
     url: https://www.niupic.com/
 
     image: https://i.niupic.com/images/2022/12/04/abCy.png
+    """
+
+    ImgAx = auto()
+    """
+    :deprecated
+    
+    url: https://img.ax/
+
+    image: https://img.urlnode.com/file/ccd2064575362a738e943.jpg
     """
