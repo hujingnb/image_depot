@@ -16,6 +16,7 @@ class DepotType(Enum):
     注意: 
         * 此图床国内无法访问
     """
+
     PomfSe = auto()
     """
     一类图床. 使用同一套框架运行, 上传接口一致. 
@@ -40,6 +41,7 @@ class DepotType(Enum):
     
     image: https://s1.fileditch.ch/eUrajjLmzsKuXEDRzaBZ.jpg
     """
+
     Riyugo = auto()
     """
     限制: 
@@ -50,6 +52,7 @@ class DepotType(Enum):
     
     image: https://beta.glilmu.com/i/2022/12/04/p6eo39.png
     """
+
     ImgUrl = auto()
     """
     免费账户有上传限制:
@@ -61,6 +64,7 @@ class DepotType(Enum):
     
     image: https://s3.uuu.ovh/imgs/2022/12/04/568047dc209095c7.jpg
     """
+
     SmMs = auto()
     """
     限制: 
@@ -72,24 +76,29 @@ class DepotType(Enum):
     
     image: https://s2.loli.net/2022/12/04/XDt4H1zyMi6QvJ7.jpg
     """
+
     Imgbb = auto()
     """
     限制: 
         1. 图片链接空 referer 访问时, 会重定向到图床网址
+    注意: 
+        * 此图床国内无法访问
     url: https://imgbb.com/
     
     image: https://i.ibb.co/Qnjwwy4/source.jpg
     """
+
     Xywm = auto()
     """
     图床
         1. 注册用户存在限制, 可能登录后查看
             * 限制并发数量及上传数量
     
-    url: https://pic.xywm.ltd/
+    url: https://pic.160320.xyz/
     
     image: https://p1.xywm.ltd/2022/12/04/638c4d21b9060.jpg
     """
+
     BoLuo = auto()
     """
     图床, 限制: 
@@ -99,6 +108,7 @@ class DepotType(Enum):
     
     image: https://s1.boluo.link/imgs/2022/12/04/7bde14bb7169b7f2.jpg
     """
+
     Postimages = auto()
     """
     缺点: 
@@ -106,12 +116,14 @@ class DepotType(Enum):
         2. 图片链接空 referer 访问时, 会重定向到图床网址
     url: https://postimages.org/
     """
+
     Hakaimg = auto()
     """
     url: https://hakaimg.com/
     
     image: https://hakaimg.com/i/2022/12/04/pd0mkv.jpg
     """
+
     Tucang = auto()
     """
     图仓
@@ -119,12 +131,14 @@ class DepotType(Enum):
     
     image: https://img.tucang.cc/api/image/show/87917ba87bde14bb7169b7f225e430ac
     """
+
     ImgAx = auto()
     """
     url: https://img.ax/
     
     image: https://img.urlnode.com/file/ccd2064575362a738e943.jpg
     """
+
     HuaBan = auto()
     """
     花瓣网站的图片上传. 图片上传接口在图集上传处发现
@@ -136,6 +150,7 @@ class DepotType(Enum):
     
     image: https://gd-hbimg.huaban.com/670abb2c3e9db5ae69395775b5eb440730fdb4b43e39-viueHl
     """
+
     Ai58 = auto()
     """
     58同城客服, 在线上传图片
@@ -144,6 +159,7 @@ class DepotType(Enum):
     
     image: https://pic3.58cdn.com.cn/nowater/webim/big/n_v2e0aa97ec21bb4f4581f365eff90a683c.jpg
     """
+
     Github = auto()
     """
     借用 github 仓库
@@ -152,6 +168,7 @@ class DepotType(Enum):
     
     image: https://cdn.jsdelivr.net/gh/hujingnb/img@test/content/img/f27ad12e-9bdb-4ab5-b2f7-91c0eff0ea55.jpg
     """
+
     PzAl = auto()
     """
     url: https://pz.al/

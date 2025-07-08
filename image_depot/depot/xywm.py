@@ -26,7 +26,7 @@ class Xywm(Depot):
             "Accept": "application/json",
             'X-API-Key': conf.api_key
         }
-        response = requests.post("https://pic.xywm.ltd/api/1/upload", headers=headers, data=data)
+        response = requests.post("https://pic.160320.xyz/api/1/upload", headers=headers, data=data)
         if response.status_code != 200:
             return self._set_error(f'upload fail. code: {response.status_code}')
         data = response.json()

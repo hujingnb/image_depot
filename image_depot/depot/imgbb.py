@@ -34,7 +34,7 @@ class Imgbb(Depot):
         files = {
             'source': content,
         }
-        response = session.post('https://zh-cn.imgbb.com/json', data=data, files=files)
+        response = session.post('https://imgbb.com/json', data=data, files=files)
         if response.status_code != 200:
             return self._set_error(f'request fail. code: {response.status_code}')
         #  检查返回数据

@@ -24,7 +24,7 @@ class SmMs(Depot):
             'smfile': content,
         }
 
-        response = requests.post('https://smms.app/api/v2/upload', data=data, files=files, headers=headers, timeout=30)
+        response = requests.post('https://sm.ms/api/v2/upload', data=data, files=files, headers=headers, timeout=30)
         if response.status_code != 200:
             return self._set_error(f'upload fail. status: {response.status_code}')
         data = response.json()
