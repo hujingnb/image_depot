@@ -179,7 +179,6 @@ class DepotType(Enum):
     image: https://23img.com/i/2023/10/04/w7igrm.jpg
     """
 
-    '''============================已不再支持的图床, 保留是为了旧版本升级不报错'''
     Dig268608 = auto()
     """
     :deprecated
@@ -188,6 +187,7 @@ class DepotType(Enum):
     image: https://www.268608.com/imgs/2022/12/04/7bde14bb7169b7f2.jpg
     """
 
+    '''============================已不再支持的图床, 保留是为了旧版本升级不报错'''
     PngCm = auto()
     """
     :deprecated
