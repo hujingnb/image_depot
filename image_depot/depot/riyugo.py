@@ -46,7 +46,7 @@ class Riyugo(Depot):
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) '
                           'Chrome/107.0.0.0 Safari/537.36',
         }
-        response = session.post('https://s1.wzznft.com/localup.php', data=data, files=files, headers=headers)
+        response = session.post('https://uy.wzznft.com/localup.php', data=data, files=files, headers=headers)
         if response.status_code != 200:
             return self._set_error(f'upload fail. code: {response.status_code}. content: {response.text}')
         data = response.json()
