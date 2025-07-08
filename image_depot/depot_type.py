@@ -169,7 +169,6 @@ class DepotType(Enum):
     image: https://f.pz.al/pzal/2023/11/19/37bd71a58ad86.jpg
     """
 
-    '''============================已不再支持的图床, 保留是为了旧版本升级不报错'''
     Image23 = auto()
     """
     :deprecated
@@ -180,6 +179,7 @@ class DepotType(Enum):
     image: https://23img.com/i/2023/10/04/w7igrm.jpg
     """
 
+    '''============================已不再支持的图床, 保留是为了旧版本升级不报错'''
     Dig268608 = auto()
     """
     :deprecated
